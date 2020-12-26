@@ -1,12 +1,6 @@
 import React from "react";
 
 class BadgeForm extends React.Component {
-  handleChange = (e) => {
-    console.log({
-      value: e.target.value,
-      name: e.target.name,
-    });
-  };
   handleClick = (e) => {
     console.log("Button was clicked");
   };
@@ -21,10 +15,43 @@ class BadgeForm extends React.Component {
             <div className="form-group">
               <label>First Name</label>
               <input
-                onChange={this.handleChange}
+                onChange={this.props.onChange}
                 type="text"
                 name="firstName"
                 className="form-control"
+                value={this.props.formValues.firstName}
+              />
+              <label>Last Name</label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                name="lastName"
+                className="form-control"
+                value={this.props.formValues.lastName}
+              />
+              <label>Email</label>
+              <input
+                onChange={this.props.onChange}
+                type="email"
+                name="email"
+                className="form-control"
+                value={this.props.formValues.email}
+              />
+              <label>Job Title</label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                name="jobTitle"
+                className="form-control"
+                value={this.props.formValues.jobTitle}
+              />
+              <label>Twitter</label>
+              <input
+                onChange={this.props.onChange}
+                type="text"
+                name="twitter"
+                className="form-control"
+                value={this.props.formValues.twitter}
               />
             </div>
             <button
