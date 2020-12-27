@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "../styles/Badges.css";
 
 import confLogo from "../images/badge-header.svg";
 import NavBar from "../components/Navbar";
+import BadgeList from "../components/BadgeList";
 
 class Badges extends React.Component {
   state = {
@@ -57,21 +59,13 @@ class Badges extends React.Component {
         </div>
         <div className="Badges__container">
           <div className="Badge__buttons">
-            <a className="btn btn-primary" href="/badges/new">
+            <Link to="/badges/new" className="btn btn-primary">
               New Badge
-            </a>
+            </Link>
           </div>
           <div className="Badges__list">
             <div className="Badges__container">
-              <ul className="list-unstyled">
-                {this.state.data.map((badge) => (
-                  <li key={badge.id}>
-                    <p>
-                      {badge.firstName} {badge.lastName}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+              <BadgeList badges={this.state.data} />
             </div>
           </div>
         </div>
