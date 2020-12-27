@@ -5,6 +5,8 @@ import "../styles/Badges.css";
 
 import confLogo from "../images/badge-header.svg";
 import BadgeList from "../components/BadgeList";
+import PageLoading from "../components/PageLoading";
+import PageError from "../components/PageError";
 
 import api from "../api";
 
@@ -35,10 +37,10 @@ class Badges extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <h3>Loading...</h3>;
+      return <PageLoading />;
     }
     if (this.state.error) {
-      return <h3>Error {`${this.state.error.message}`}</h3>;
+      return <PageError message={this.state.error.message} />;
     }
     return (
       <div>
